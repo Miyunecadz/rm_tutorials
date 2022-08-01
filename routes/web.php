@@ -23,12 +23,12 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/', 'index')->name('dashboard');
         Route::get('/create', 'create')->name('folder.create');
         Route::post('/create', 'store')->name('folder.store');
-        Route::get('/renamePage', 'renamePage')->name('folder.renamePage');
         Route::get('/delete', 'delete')->name('folder.delete');
     });
 
     Route::controller(FileUploadController::class)->group(function(){
         Route::get('/upload', 'uploadPage')->name('folder.upload');
+        Route::get('/addlink', 'addlinkPage')->name('folder.addlink');
     });
 
 

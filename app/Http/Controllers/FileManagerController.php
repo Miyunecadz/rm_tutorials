@@ -55,12 +55,6 @@ class FileManagerController extends Controller
         return back()->with('success', 'New folder has been created!');
     }
 
-    public function renamePage(Request $request)
-    {
-        $path = $request->path ?? $this->rootDirectory;
-        return view('file.rename', compact('path'))->with('success', 'New folder has been created!');
-    }
-
     public function delete(Request $request)
     {
         $path = $request->path;

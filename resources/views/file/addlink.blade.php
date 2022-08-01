@@ -4,8 +4,8 @@
     <div class="row justify-content-center align-content-center" style="height: 90vh">
         <div class="col-md-4 ">
 
-            <h5 class="text-center">Rename Folder</h5>
-            <form action="{{ route('folder.renamePage') }}" method="post" class="card p-3 shadow">
+            <h4 class="text-center">Add Link</h4>
+            <form action="{{ route('folder.addlink') }}" method="post" class="card p-3 shadow">
                 <div class="w-100 d-flex">
                     <a href="{{ route('dashboard', ['path' => $path]) }}" class="ms-auto text-decoration-none text-secondary">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
@@ -24,15 +24,20 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                     @endif
-                    <label for="name">Folder Name</label>
+                    <label for="name">Name</label>
                     <input type="text" name="name" id="name" class="form-control">
-                    @error('email')
+                    @error('name')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
+                    <label for="url">URL</label>
+                    <input type="text" name="url" id="url" class="form-control">
+                    @error('url')
                         <small class="text-danger">{{ $message }}</small>
                     @enderror
                 </div>
 
                 <div class="form-group my-1">
-                    <button type="submit" class="ms-auto btn btn-primary">Rename</button>
+                    <button type="submit" class="ms-auto btn btn-primary">Add Link</button>
                 </div>
             </form>
         </div>
