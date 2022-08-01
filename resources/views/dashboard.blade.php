@@ -5,7 +5,7 @@
         <div class="d-flex">
             <h5>File Manager</h5>
             <div class="ms-auto d-flex gap-2">
-                <a class="btn btn-sm btn-outline-secondary" href="{{ route('folder.create', ['path' => $path]) }}">
+                <a class="btn btn-sm btn-outline-secondary" href="">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="me-1" fill="currentColor"
                         class="bi bi-folder-plus" viewBox="0 0 16 16">
                         <path
@@ -30,9 +30,18 @@
         <hr>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Library</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Data</li>
+                @foreach ($urls as $key => $value)
+                    <li class="breadcrumb-item  {{$key == basename($path) ? "active" : ''}}">
+                        @if ($key == basename($path))
+                            {{Str::title($key)}}
+                        @else
+                            <a href="{{route('dashboard', ['path' => $value])}}">{{Str::title($key)}}</a>
+
+                        @endif
+                    </li>
+
+                @endforeach
+
             </ol>
         </nav>
         <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -101,7 +110,7 @@
             <div class="row justify-content-center align-content-center" style="height: 80vh">
                 <div class="col-md-4 ">
                     <div class="d-flex justify-content-center gap-2">
-                        <img src="{{ asset('images/elink-logo-site.png') }}" height="100" width="100" alt="" srcset="">
+                        <img src="{{ asset('images/empty-folder.png') }}" height="100" width="100" alt="" srcset="">
                         {{-- <img src="{{asset('images/readers_magnet.png')}}" height="90" width="90" alt="" srcset=""> --}}
                     </div>
                     <h6 class="text-center">This directory is empty</h6>

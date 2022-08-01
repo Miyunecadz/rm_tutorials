@@ -15,7 +15,24 @@ class FileManagerController extends Controller
         $files = Storage::files($path);
         $directories = Storage::directories($path);
 
-        return view('dashboard', compact('path', 'files', 'directories'));
+        $urls = $this->getUrl($path);
+        return view('dashboard', compact('path', 'files', 'directories', 'urls'));
+    }
+
+
+    private function getUrl($path)
+    {
+        $sections = explode("/", $path);
+        $currentValue = "";
+        $urls = [];
+
+        foreach($sections as $section){
+            $urls[$section == 'public' ? 'home' : $section] = $currentValue . $section . "/";
+            $currentValue = $currentValue . $section . "/";
+        }
+
+
+        return $urls;
     }
 
     public function create(Request $request)
