@@ -17,7 +17,6 @@ use App\Http\Controllers\UserController;
 */
 
 Route::middleware(['auth'])->group(function () {
-<<<<<<< HEAD
 
     Route::controller(FileManagerController::class)->group(function(){
         Route::get('/', 'index')->name('dashboard');
@@ -27,9 +26,6 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('/', 'delete')->name('folder.delete');
         Route::get('/folder/upload','uploadPage')->name('folder.upload-page');
     });
-=======
-    Route::get('/', [FileManagerController::class, 'index'])->name('dashboard');
->>>>>>> 42c660210143c3587928e3d98d796f1b5c995b75
 
 
     Route::controller(AuthenticationController::class)->group(function(){
