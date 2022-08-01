@@ -21,7 +21,7 @@
                     </svg>
                     File Upload
                 </a>
-                <a class="btn btn-sm btn-outline-success" href="{{ route('folder.addlink', ['path' => $path]) }}">
+                <a class="btn btn-sm btn-outline-success" href="{{ route('link.create', ['path' => $path]) }}">
                     <svg class="me-1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
                         <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
                         <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/>
@@ -95,6 +95,31 @@
                                     <li><a class="dropdown-item" href="#">Open</a></li>
                                     <li><a class="dropdown-item" href="#">Rename</a></li>
                                     <li><a class="dropdown-item" href="#">Delete</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+
+            @foreach ($links as $link)
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body d-flex ">
+                            <div class="d-flex gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="28" fill="currentColor" class="bi bi-browser-chrome" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M16 8a8.001 8.001 0 0 1-7.022 7.94l1.902-7.098a2.995 2.995 0 0 0 .05-1.492A2.977 2.977 0 0 0 10.237 6h5.511A8 8 0 0 1 16 8ZM0 8a8 8 0 0 0 7.927 8l1.426-5.321a2.978 2.978 0 0 1-.723.255 2.979 2.979 0 0 1-1.743-.147 2.986 2.986 0 0 1-1.043-.7L.633 4.876A7.975 7.975 0 0 0 0 8Zm5.004-.167L1.108 3.936A8.003 8.003 0 0 1 15.418 5H8.066a2.979 2.979 0 0 0-1.252.243 2.987 2.987 0 0 0-1.81 2.59ZM8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/>
+                                  </svg>
+                                {{ Str::title($link->name) }}
+                            </div>
+                            <div class="dropdown ms-auto">
+                                <button class="btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false" style="">
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="{{$link->url}}" target="_blank">Open</a></li>
+                                    <li><a class="dropdown-item" href="#">Rename</a></li>
+                                    <li><a class="dropdown-item" href="{{route('link.delete', ['link' => $link])}}" onclick="return confirm('Are you sure you want to delete this link?')">Delete</a></li>
                                 </ul>
                             </div>
                         </div>

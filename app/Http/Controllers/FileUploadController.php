@@ -12,9 +12,5 @@ class FileUploadController extends Controller
         return view('file.upload', compact('path'));
     }
 
-    public function addlinkPage(Request $request)
-    {
-        $path = $request->path ?? $this->rootDirectory;
-        return view('file.addlink', compact('path'));
-    }
+
 }

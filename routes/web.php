@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\FileManagerController;
 use App\Http\Controllers\FileUploadController;
+use App\Http\Controllers\LinkController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -28,7 +29,12 @@ Route::middleware(['auth'])->group(function () {
 
     Route::controller(FileUploadController::class)->group(function(){
         Route::get('/upload', 'uploadPage')->name('folder.upload');
-        Route::get('/addlink', 'addlinkPage')->name('folder.addlink');
+    });
+
+    Route::controller(LinkController::class)->prefix('link')->group(function(){
+        Route::get('/', 'create')->name('link.create');
+        Route::post('/', 'store')->name('link.store');
+        Route::get('/{link}', 'delete')->name('link.delete');
     });
 
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Link;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -14,9 +15,10 @@ class FileManagerController extends Controller
         $path = $request->path ?? $this->defaultPath;
         $files = Storage::files($path);
         $directories = Storage::directories($path);
+        $links = Link::where('path', $path)->get();
 
         $urls = $this->getUrl($path);
-        return view('dashboard', compact('path', 'files', 'directories', 'urls'));
+        return view('dashboard', compact('path', 'files', 'directories', 'urls', 'links'));
     }
 
 
