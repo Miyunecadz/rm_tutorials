@@ -17,7 +17,7 @@ use App\Http\Controllers\UserController;
 */
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/', [FileManagerController::class, 'index'])->name('file.index');
+    Route::get('/', [FileManagerController::class, 'index'])->name('dashboard');
 
 
     Route::controller(AuthenticationController::class)->group(function(){
