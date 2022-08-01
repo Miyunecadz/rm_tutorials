@@ -26,7 +26,7 @@
                     @endif
                     <label for="name">Folder Name</label>
                     <input type="text" name="name" id="name" class="form-control">
-                    @error('email')
+                    @error('name')
                         <small class="text-danger">{{ $message }}</small>
                     @enderror
                 </div>

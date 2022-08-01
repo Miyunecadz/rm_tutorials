@@ -63,7 +63,7 @@
                                     <li><a class="dropdown-item"
                                             href="{{ route('dashboard', ['path' => $directory]) }}">Open</a></li>
                                     <li><a class="dropdown-item" href="{{ route('folder.renamePage', ['path' => $directory]) }}">Rename</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('folder.delete', ['path' => $directory]) }}">Delete</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('folder.delete', ['path' => $directory]) }}"  onclick="return confirm('Are you sure you want to delete this folder?')">Delete</a></li>
                                 </ul>
                             </div>
                         </div>
