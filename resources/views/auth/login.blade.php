@@ -10,7 +10,7 @@
                 {{-- <img src="{{asset('images/readers_magnet.png')}}" height="90" width="90" alt="" srcset=""> --}}
             </div>
             <h6 class="text-center">ELink Systems and Concept Corp</h6>
-            <form action="{{route('welcome')}}" method="post" class="card p-3 shadow">
+            <form action="{{route('authenticate')}}" method="post" class="card p-3 shadow">
                 <div class="w-100 d-flex">
                     <a href="../" class="ms-auto text-decoration-none text-secondary">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
