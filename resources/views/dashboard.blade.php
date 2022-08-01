@@ -56,9 +56,9 @@
                                 </button>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item"
-                                            href="{{ route('index', ['path' => $directory]) }}">Open</a></li>
-                                    <li><a class="dropdown-item" href="#">Rename</a></li>
-                                    <li><a class="dropdown-item" href="#">Delete</a></li>
+                                            href="{{ route('dashboard', ['path' => $directory]) }}">Open</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('folder.renamePage', ['path' => $directory]) }}">Rename</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('folder.delete', ['path' => $directory]) }}">Delete</a></li>
                                 </ul>
                             </div>
                         </div>
