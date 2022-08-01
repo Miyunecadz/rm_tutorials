@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\FileManagerController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -16,13 +17,8 @@ use App\Http\Controllers\UserController;
 */
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/', function () {
-        return redirect(route('dashboard'));
-    });
+    Route::get('/', [FileManagerController::class, 'index'])->name('file.index');
 
-    Route::get('/home', function () {
-        return view('dashboard');
-    })->name('dashboard');
 
     Route::controller(AuthenticationController::class)->group(function(){
         Route::post('/logout', 'logout')->name('logout');
