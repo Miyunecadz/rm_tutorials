@@ -1,6 +1,10 @@
 @extends('layouts.authenticated')
 
 @section('pages')
+
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+
         <div class="row justify-content-center align-content-center" style="height: 90vh">
             <div class="col-md-4 ">
                 <h4 class="text-center">File Upload</h4>
@@ -21,12 +25,14 @@
                         </a>
                     </div>
                     @csrf
-                    <div class="form-group my-2">
-                        <label for="email">Browse</label>
-                        <input type="file" name="file" id="file" class="form-control">
-                        @error('file')
-                            <small class="text-danger">{{$message}}</small>
-                        @enderror
+                    <div class="form-group my-2" class="dropzone">
+                        <div class="form-group fallback">
+                            <label for="email">Browse</label>
+                            <input type="file" name="file" id="file" class="form-control">
+                            @error('file')
+                                <small class="text-danger">{{$message}}</small>
+                            @enderror
+                        </div>
                     </div>
                     <div class="form-group my-1">
                         <button type="submit" class="btn btn-primary">Upload</button>
