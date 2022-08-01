@@ -31,9 +31,13 @@
         <hr>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Library</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Data</li>
+                @foreach ($urls as $key => $value)
+                    @if ($key == basename($path))
+                    <li class="breadcrumb-item {{$key == basename($path)? 'active' : ''}}">{{Str::title(basename($key))}}</li>
+                    @else
+                        <li class="breadcrumb-item"><a href="{{route('dashboard',['path' => $value])}}">{{Str::title(basename($key))}}</a></li>
+                    @endif
+                @endforeach
             </ol>
         </nav>
         <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -102,7 +106,7 @@
             <div class="row justify-content-center align-content-center" style="height: 80vh">
                 <div class="col-md-4 ">
                     <div class="d-flex justify-content-center gap-2">
-                        <img src="{{ asset('images/elink-logo-site.png') }}" height="100" width="100" alt="" srcset="">
+                        <img src="{{ asset('images/empty-folder.png') }}" height="100" width="100" alt="" srcset="">
                         {{-- <img src="{{asset('images/readers_magnet.png')}}" height="90" width="90" alt="" srcset=""> --}}
                     </div>
                     <h6 class="text-center">This directory is empty</h6>
