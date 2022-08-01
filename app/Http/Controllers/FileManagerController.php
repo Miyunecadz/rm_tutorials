@@ -47,6 +47,9 @@ class FileManagerController extends Controller
             'name' => 'required'
         ]);
 
+        if(Storage::exists($request->path . '/' . $request->name)){
+            return back()->withErrors(['name'=> 'Folder already exist']);
+        }
         Storage::makeDirectory($request->path . '/' . $request->name);
 
         return back()->with('success', 'New folder has been created!');
