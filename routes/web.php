@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\FileManagerController;
+use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -23,8 +24,11 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/create', 'create')->name('folder.create');
         Route::post('/create', 'store')->name('folder.store');
         Route::get('/renamePage', 'renamePage')->name('folder.renamePage');
-        Route::delete('/', 'delete')->name('folder.delete');
-        Route::get('/folder/upload','uploadPage')->name('folder.upload-page');
+        Route::get('/delete', 'delete')->name('folder.delete');
+    });
+
+    Route::controller(FileUploadController::class)->group(function(){
+        Route::get('/upload', 'uploadPage')->name('folder.upload');
     });
 
 

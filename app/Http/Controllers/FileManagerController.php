@@ -58,11 +58,11 @@ class FileManagerController extends Controller
         return view('file.rename', compact('path'))->with('success', 'New folder has been created!');
     }
 
-    // public function delete(Book $book)
-    // {
-    //     $book->delete();
+    public function delete(Request $request)
+    {
+        $path = $request->path;
+       Storage::deleteDirectory($path);
 
-    //    return redirect()->route('file.delete')->with('success','Folder successfully deleted');
-    // }
-
+       return back();
+    }
 }

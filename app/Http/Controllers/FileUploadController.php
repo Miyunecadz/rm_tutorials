@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 
 class FileUploadController extends Controller
 {
-    public function index(Request $request)
+    public function uploadPage(Request $request)
     {
-
+        $path = $request->path ?? $this->rootDirectory;
+        return view('file.upload', compact('path'));
     }
 }

@@ -4,7 +4,7 @@
     <div class="row justify-content-center align-content-center" style="height: 90vh">
         <div class="col-md-4 ">
 
-            <h5 class="text-center">New Folder</h5>
+            <h4 class="text-center">New Folder</h4>
             <form action="{{ route('folder.store') }}" method="post" class="card p-3 shadow">
                 <div class="w-100 d-flex">
                     <a href="{{ route('dashboard', ['path' => $path]) }}" class="ms-auto text-decoration-none text-secondary">

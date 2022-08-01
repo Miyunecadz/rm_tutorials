@@ -5,7 +5,7 @@
         <div class="d-flex">
             <h5>File Manager</h5>
             <div class="ms-auto d-flex gap-2">
-                <a class="btn btn-sm btn-outline-secondary" href="">
+                <a class="btn btn-sm btn-outline-secondary" href="{{ route('folder.create', ['path' => $path]) }}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="me-1" fill="currentColor"
                         class="bi bi-folder-plus" viewBox="0 0 16 16">
                         <path
@@ -15,33 +15,25 @@
                     </svg>
                     New Folder
                 </a>
-                <button class="btn btn-sm btn-outline-primary">
+                <a class="btn btn-sm btn-outline-primary" href="{{ route('folder.upload', ['path' => $path]) }}">
                     <svg class="me-1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-file-earmark-arrow-up" viewBox="0 0 16 16">
-                        <path
-                            d="M8.5 11.5a.5.5 0 0 1-1 0V7.707L6.354 8.854a.5.5 0 1 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 7.707V11.5z" />
-                        <path
-                            d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z" />
+                    class="bi bi-file-earmark-arrow-up" viewBox="0 0 16 16">
+                    <path
+                    d="M8.5 11.5a.5.5 0 0 1-1 0V7.707L6.354 8.854a.5.5 0 1 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 7.707V11.5z" />
+                    <path
+                    d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z" />
                     </svg>
                     File Upload
+                </a>
                 </button>
             </div>
         </div>
         <hr>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                @foreach ($urls as $key => $value)
-                    <li class="breadcrumb-item  {{$key == basename($path) ? "active" : ''}}">
-                        @if ($key == basename($path))
-                            {{Str::title($key)}}
-                        @else
-                            <a href="{{route('dashboard', ['path' => $value])}}">{{Str::title($key)}}</a>
-
-                        @endif
-                    </li>
-
-                @endforeach
-
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Library</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Data</li>
             </ol>
         </nav>
         <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -110,7 +102,7 @@
             <div class="row justify-content-center align-content-center" style="height: 80vh">
                 <div class="col-md-4 ">
                     <div class="d-flex justify-content-center gap-2">
-                        <img src="{{ asset('images/empty-folder.png') }}" height="100" width="100" alt="" srcset="">
+                        <img src="{{ asset('images/elink-logo-site.png') }}" height="100" width="100" alt="" srcset="">
                         {{-- <img src="{{asset('images/readers_magnet.png')}}" height="90" width="90" alt="" srcset=""> --}}
                     </div>
                     <h6 class="text-center">This directory is empty</h6>
