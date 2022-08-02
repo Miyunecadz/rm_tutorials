@@ -39,7 +39,8 @@
         let resumable = new Resumable({
             target: '', // Route here.
             query: {
-                _token:'{{ csrf_token() }}'
+                _token:'{{ csrf_token() }}',
+                path: '{{$path}}'
             }, // CSRF Token
             fileType: ['mp4', 'pdf', 'WebM'],
             chunkSize: 10*1024*1024,
