@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Link;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 
 class FileManagerController extends Controller
@@ -61,5 +62,19 @@ class FileManagerController extends Controller
     {
        Storage::deleteDirectory($request->path);
        return back();
+    }
+
+    public function openFile(Request $request)
+    {
+        $video = $request->path;
+        return view('file.player', compact('video'));
+    }
+
+    public function getVideo(Request $request)
+    {
+        $video = Storage::get($request->video);
+        $response = Response::make($video, 200);
+        $response->header('Content-Type', 'video/mp4');
+        return $response;
     }
 }
