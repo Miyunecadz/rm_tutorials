@@ -25,7 +25,7 @@ class FileUploadController extends Controller
         $fileReceived = $receiver->receive(); // receive file
         if ($fileReceived->isFinished()) { // file uploading is complete / all chunks are uploaded
             $file = $fileReceived->getFile(); // get file
-            $fileName = $file->getClientOriginalName();
+            $fileName = $request->newFileName != '' ? $request->newFileName .'.'.$file->getClientOriginalExtension() : $file->getClientOriginalName();
 
             $path = Storage::putFileAs($request->path, $file, $fileName);
 
