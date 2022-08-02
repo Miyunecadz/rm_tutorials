@@ -43,7 +43,7 @@
                 path: '{{$path}}'
             }, // CSRF Token
             fileType: ['mp4', 'pdf', 'WebM'],
-            chunkSize: 10*1024*1024,
+            chunkSize: 15*1024*1024,
             headers: {
                 'Accept': 'application/json'
             },
@@ -65,10 +65,15 @@
         resumable.on('fileSuccess', (file, response) => {
             response = JSON.parse(response);
 
+            setTimeout(() => {
+                alert('File successfully uploaded!');
+                window.location.replace('{{route('dashboard', ['path' => $path])}}')
+            }, 1500);
         });
 
         resumable.on('fileError', (file, response) => {
             alert('File Uploading Error');
+            hideProgress()
         });
 
         let progress = $('.progress');
