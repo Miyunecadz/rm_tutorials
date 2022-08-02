@@ -70,4 +70,18 @@ class FileManagerController extends Controller
         // Storage::download($request->file);
         // return back();
     }
+
+    public function openFile(Request $request)
+    {
+        $video = $request->path;
+        return view('file.player', compact('video'));
+    }
+
+    public function getVideo(Request $request)
+    {
+        $video = Storage::get($request->video);
+        $response = Response::make($video, 200);
+        $response->header('Content-Type', 'video/mp4');
+        return $response;
+    }
 }
