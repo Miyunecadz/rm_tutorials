@@ -47,6 +47,8 @@
         <div class="row row-cols-1 row-cols-md-3 g-4">
 
             @foreach ($directories as $directory)
+            @if (substr(basename($directory),0,1) != ".")
+
                 <div class="col">
                     <div class="card h-100">
                         <div class="card-body d-flex">
@@ -74,6 +76,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
             @endforeach
 
             @foreach ($files as $file)
