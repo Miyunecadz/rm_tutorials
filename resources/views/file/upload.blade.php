@@ -58,7 +58,7 @@
                 _token:'{{ csrf_token() }}',
                 path: '{{$path}}',
             }, // CSRF Token
-            fileType: ['mp4', 'pdf', 'WebM'],
+            fileType: ['mp4', 'pdf', 'WebM', 'html', 'png', 'jpg', 'jpeg'],
             chunkSize: 10*1024*1024,
             headers: {
                 'Accept': 'application/json'
