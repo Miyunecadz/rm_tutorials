@@ -1,7 +1,7 @@
 @extends('layouts.authenticated')
 
 @section('pages')
-    <div class="container mt-4">
+    <div class="container my-4">
         @auth
         <div class="d-flex">
             <h5>File Manager</h5>
