@@ -59,7 +59,7 @@
                 path: '{{$path}}',
             }, // CSRF Token
             fileType: ['mp4', 'pdf', 'WebM'],
-            chunkSize: 15*1024*1024,
+            chunkSize: 10*1024*1024,
             headers: {
                 'Accept': 'application/json'
             },
