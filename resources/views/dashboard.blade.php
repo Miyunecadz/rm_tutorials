@@ -80,7 +80,7 @@
                 <div class="col">
                     <div class="card h-100">
                         <div class="card-body d-flex ">
-                            <div class="d-flex gap-2">
+                            <div class="d-flex gap-2 " >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="28" fill="currentColor"
                                     class="bi bi-file-earmark-text" viewBox="0 0 16 16">
                                     <path
@@ -88,7 +88,9 @@
                                     <path
                                         d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z" />
                                 </svg>
-                                {{ basename($file) }}
+                                <span class="text-break">
+                                    {{ basename($file) }}
+                                </span>
                             </div>
                             <div class="dropdown ms-auto">
                                 <button class="btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown"
