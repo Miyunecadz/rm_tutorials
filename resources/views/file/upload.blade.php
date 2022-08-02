@@ -65,10 +65,15 @@
         resumable.on('fileSuccess', (file, response) => {
             response = JSON.parse(response);
 
+            setTimeout(() => {
+                alert('File successfully uploaded!');
+                window.location.replace('{{route('dashboard', ['path' => $path])}}')
+            }, 1500);
         });
 
         resumable.on('fileError', (file, response) => {
             alert('File Uploading Error');
+            hideProgress()
         });
 
         let progress = $('.progress');
