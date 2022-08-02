@@ -93,7 +93,6 @@
             alert('File Uploading Error');
             hideProgress()
         });
-    }
 
 
         let progress = $('.progress');
@@ -112,5 +111,6 @@
         function hideProgress() {
             progress.hide();
         }
+    })
 </script>
 @endsection
