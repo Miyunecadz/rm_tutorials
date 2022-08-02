@@ -22,7 +22,7 @@ class LinkController extends Controller
 
         Link::create([
             'name' => $request->name,
-            'url' => $request->url,
+            'url' => $request->url .'/',
             'path' => $request->path
         ]);
 
