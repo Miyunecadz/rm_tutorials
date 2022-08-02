@@ -10,7 +10,7 @@
 </head>
 <style>
     body{
-        background-color: #bae6fd;
+        background-color: #e8e9eb;
     }
 </style>
 <body>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<nav class="navbar navbar-expand-lg bg-light navbar-light shadow">
+<nav class="navbar navbar-expand-lg  navbar-dark shadow" style="background: #b71515 !important">
     <div class="container">
       <a class="navbar-brand" href="{{route('dashboard')}}">RM Online Tutorials</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,5 +31,5 @@
       </div>
     </div>
   </nav>
-  @yield('pages')
+    @yield('pages')
 @endsection

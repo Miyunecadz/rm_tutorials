@@ -21,7 +21,7 @@ use App\Http\Controllers\UserController;
 Route::middleware(['auth'])->group(function () {
 
     Route::controller(FileManagerController::class)->group(function(){
-        Route::get('/', 'index')->name('dashboard');
+        Route::get('/home', 'index')->name('dashboard');
         Route::get('/create', 'create')->name('folder.create');
         Route::post('/create', 'store')->name('folder.store');
         Route::get('/delete', 'delete')->name('folder.delete');
