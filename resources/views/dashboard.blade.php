@@ -2,9 +2,9 @@
 
 @section('pages')
     <div class="container mt-4">
+        @auth
         <div class="d-flex">
             <h5>File Manager</h5>
-            @auth
                 <div class="ms-auto d-flex gap-2">
                     <a class="btn btn-sm btn-outline-dark" href="{{ route('folder.create', ['path' => $path]) }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="me-1" fill="currentColor"
@@ -30,9 +30,9 @@
                         Add Link
                     </a>
                 </div>
-            @endauth
-        </div>
-        <hr>
+            </div>
+            <hr>
+        @endauth
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 @foreach ($urls as $key => $value)
