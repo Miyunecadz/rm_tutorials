@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Link;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 
 class FileManagerController extends Controller
@@ -61,5 +62,12 @@ class FileManagerController extends Controller
     {
        Storage::deleteDirectory($request->path);
        return back();
+    }
+
+    public function downloadFile(Request $request)
+    {
+        return Storage::download($request->file);
+        // Storage::download($request->file);
+        // return back();
     }
 }

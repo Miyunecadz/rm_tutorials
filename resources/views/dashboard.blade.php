@@ -92,7 +92,7 @@
                                 </button>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="#">Open</a></li>
-                                    <li><a class="dropdown-item" href="#">Download</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('file.downloadFile', ['file' => $file]) }}">Download</a></li>
                                     <li><a class="dropdown-item" href="{{ route('file.delete', ['file' => $file]) }}"  onclick="return confirm('Are you sure you want to delete this file?')">Delete</a></li>
                                 </ul>
                             </div>
@@ -117,7 +117,6 @@
                                 </button>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="{{$link->url}}" target="_blank">Open</a></li>
-                                    <li><a class="dropdown-item" href="#">Download</a></li>
                                     <li><a class="dropdown-item" href="{{route('link.delete', ['link' => $link])}}" onclick="return confirm('Are you sure you want to delete this link?')">Delete</a></li>
                                 </ul>
                             </div>

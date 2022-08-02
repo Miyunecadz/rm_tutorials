@@ -25,6 +25,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/create', 'create')->name('folder.create');
         Route::post('/create', 'store')->name('folder.store');
         Route::get('/delete', 'delete')->name('folder.delete');
+        Route::get('/download', 'downloadFile')->name('file.downloadFile');
     });
 
     Route::controller(FileUploadController::class)->group(function(){
