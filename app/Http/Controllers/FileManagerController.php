@@ -11,17 +11,6 @@ class FileManagerController extends Controller
 {
     private $defaultPath = 'public/';
 
-    public function publicDisplay(Request $request)
-    {
-        $path = $request->path ?? $this->defaultPath;
-        $files = Storage::files($path);
-        $directories = Storage::directories($path);
-        $links = Link::where('path', $path)->orWhere('path', $path .'/')->get();
-
-        $urls = $this->getUrl($path);
-        return view('dashboard', compact('path', 'files', 'directories', 'urls', 'links'));
-    }
-
     public function index(Request $request)
     {
         $path = $request->path ?? $this->defaultPath;
