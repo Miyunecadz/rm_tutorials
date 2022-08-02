@@ -112,6 +112,5 @@
         function hideProgress() {
             progress.hide();
         }
-    })
 </script>
 @endsection
