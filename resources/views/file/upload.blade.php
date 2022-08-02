@@ -37,7 +37,7 @@
 
         let browseBtn = $('#browseFileBtn')
         let resumable = new Resumable({
-            target: '', // Route here.
+            target: '{{route('file.uploadLargeFiles')}}', // Route here.
             query: {
                 _token:'{{ csrf_token() }}',
                 path: '{{$path}}'

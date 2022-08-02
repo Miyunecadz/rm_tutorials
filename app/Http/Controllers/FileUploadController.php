@@ -16,7 +16,6 @@ class FileUploadController extends Controller
     }
 
     public function uploadLargeFiles(Request $request) {
-        dd($request->all());
         $receiver = new FileReceiver('file', $request, HandlerFactory::classFromRequest($request));
 
         if (!$receiver->isUploaded()) {
@@ -26,12 +25,12 @@ class FileUploadController extends Controller
         $fileReceived = $receiver->receive(); // receive file
         if ($fileReceived->isFinished()) { // file uploading is complete / all chunks are uploaded
             $file = $fileReceived->getFile(); // get file
-            $extension = $file->getClientOriginalExtension();
-            $fileName = str_replace('.'.$extension, '', $file->getClientOriginalName()); //file name without extenstion
-            $fileName .= '_' . md5(time()) . '.' . $extension; // a unique file name
+            $fileName = $file->getClientOriginalName();
 
-            $disk = Storage::disk(config('filesystems.default'));
-            $path = $disk->putFileAs('videos', $file, $fileName);
+            $path = Storage::putFileAs($request->path, $file, $fileName);
+
+            // $disk = Storage::disk(config('filesystems.default'));
+            // $path = $disk->putFileAs('videos', $file, $fileName);
 
             // delete chunked file
             unlink($file->getPathname());
