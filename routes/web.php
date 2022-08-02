@@ -19,7 +19,7 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', [FileManagerController::class, 'index'])->name('dashboard');
-Route::get('/download', 'downloadFile')->name('file.downloadFile');
+Route::get('/download', [FileManagerController::class, 'downloadFile')->name('file.downloadFile');
 
 Route::middleware(['auth'])->group(function () {
 
