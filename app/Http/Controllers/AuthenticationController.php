@@ -22,7 +22,7 @@ class AuthenticationController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect('/home');
+            return redirect()->intended('/');
         }
 
         return back()->withErrors([
@@ -38,6 +38,6 @@ class AuthenticationController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/home');
+        return redirect('/');
     }
 }
