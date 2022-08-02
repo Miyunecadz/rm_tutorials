@@ -13,7 +13,7 @@
                     </svg>
                     New Folder
                 </a>
-                <a class="btn btn-sm btn-outline-primary" href="{{ route('folder.upload', ['path' => $path]) }}">
+                <a class="btn btn-sm btn-outline-primary" href="{{ route('file.upload', ['path' => $path]) }}">
                     <svg class="me-1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-file-earmark-arrow-up" viewBox="0 0 16 16">
                     <path d="M8.5 11.5a.5.5 0 0 1-1 0V7.707L6.354 8.854a.5.5 0 1 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 7.707V11.5z" />
@@ -65,7 +65,7 @@
                                     <li><a class="dropdown-item"
                                             href="{{ route('dashboard', ['path' => $directory]) }}">Open</a></li>
                                     <li><a class="dropdown-item" href="">Rename</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('folder.delete', ['path' => $directory]) }}"  onclick="return confirm('Are you sure you want to delete this folder?')">Delete</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('file.delete', ['path' => $directory]) }}"  onclick="return confirm('Are you sure you want to delete this folder?')">Delete</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -94,7 +94,7 @@
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="#">Open</a></li>
                                     <li><a class="dropdown-item" href="#">Rename</a></li>
-                                    <li><a class="dropdown-item" href="#">Delete</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('file.delete', ['file' => $file]) }}"  onclick="return confirm('Are you sure you want to delete this file?')">Delete</a></li>
                                 </ul>
                             </div>
                         </div>

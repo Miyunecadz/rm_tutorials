@@ -47,4 +47,10 @@ class FileUploadController extends Controller
             'status' => true
         ];
     }
+
+    public function delete(Request $request)
+    {
+       Storage::delete($request->file);
+       return back();
+    }
 }

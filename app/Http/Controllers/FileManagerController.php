@@ -59,9 +59,7 @@ class FileManagerController extends Controller
 
     public function delete(Request $request)
     {
-        $path = $request->path;
-       Storage::deleteDirectory($path);
-
+       Storage::deleteDirectory($request->path);
        return back();
     }
 }

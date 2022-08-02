@@ -28,8 +28,9 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::controller(FileUploadController::class)->group(function(){
-        Route::get('/upload', 'uploadPage')->name('folder.upload');
+        Route::get('/upload', 'uploadPage')->name('file.upload');
         Route::post('/uploadLargeFiles', 'uploadLargeFiles')->name('file.uploadLargeFiles');
+        Route::get('/delete', 'delete')->name('file.delete');
     });
 
     Route::controller(LinkController::class)->prefix('link')->group(function(){
