@@ -184,9 +184,8 @@
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="{{route('markups.open', ['markup' => $markup, 'path' => $path])}}" >Open</a></li>
                                     @auth
-                                        <li><a class="dropdown-item" href="{{route('markup.edit', ['markup' => $markup, 'path' => $path])}}">Edit</a></li>
-
-                                        {{-- <li><a class="dropdown-item" href="{{route('markup.delete', ['markup' => $markup])}}" onclick="return confirm('Are you sure you want to delete this link?')">Delete</a></li> --}}
+                                        <li><a class="dropdown-item" href="{{route('markups.edit', ['markup' => $markup, 'path' => $path])}}">Edit</a></li>
+                                        <li><a class="dropdown-item" href="{{route('markups.delete', ['markup' => $markup])}}" onclick="return confirm('Are you sure you want to delete this link?')">Delete</a></li>
                                     @endauth
                                 </ul>
                             </div>

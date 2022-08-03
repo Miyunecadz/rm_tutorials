@@ -27,6 +27,7 @@
 
         <form action="{{route('markups.update', ['markup' => $markup, 'path' => $path])}}" method="post">
             @csrf
+            @method('PUT')
             <div class="d-flex">
                 <div class="form-group my-2 w-50">
                     <label for="name">Name</label>

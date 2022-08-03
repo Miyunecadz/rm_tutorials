@@ -38,7 +38,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/{markup}', 'open')->name('markups.open');
         Route::get('/{markup}/edit', 'edit')->name('markups.edit');
         Route::put('/{markup}', 'update')->name('markups.update');
-        Route::delete('/{markup}', 'delete')->name('markups.delete');
+        Route::get('/{markup}/delete', 'delete')->name('markups.delete');
     });
 
     Route::controller(FileUploadController::class)->group(function(){
