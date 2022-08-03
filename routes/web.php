@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\FileManagerController;
 use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\LinkController;
+use App\Http\Controllers\MarkUpController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -29,6 +30,15 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/delete', 'delete')->name('folder.delete');
         Route::get('/file/open', 'openFile')->name('file.open');
         Route::get('/get-video', 'getVideo')->name('get.video');
+    });
+
+    Route::controller(MarkUpController::class)->prefix('/markups')->group(function(){
+        Route::get('/', 'create')->name('markups.create');
+        Route::post('/', 'store')->name('markups.store');
+        Route::get('/{markup}', 'open')->name('markups.open');
+        Route::get('/{markup}/edit', 'edit')->name('markups.edit');
+        Route::put('/{markup}', 'update')->name('markups.update');
+        Route::delete('/{markup}', 'delete')->name('markups.delete');
     });
 
     Route::controller(FileUploadController::class)->group(function(){

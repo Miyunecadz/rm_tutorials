@@ -15,14 +15,22 @@ class LinkController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $data =$request->validate([
             'name' => 'required',
             'url' => 'required|url'
         ]);
 
+        $exist = Link::where('name', $request->name)->first();
+        $index = 1;
+
+        while($exist && $exist->name == $data['name']){
+            $data['name'] = $data['name'] ." ($index)";
+            $index++;
+        }
+
         Link::create([
-            'name' => $request->name,
-            'url' => $request->url .'/',
+            'name' => $data['name'],
+            'url' => $request->url,
             'path' => $request->path
         ]);
 

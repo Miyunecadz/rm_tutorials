@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Link;
+use App\Models\Markup;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
@@ -17,9 +18,10 @@ class FileManagerController extends Controller
         $files = Storage::files($path);
         $directories = Storage::directories($path);
         $links = Link::where('path', $path)->orWhere('path', $path .'/')->get();
+        $markups = Markup::where('path', $path)->orWhere('path', $path .'/')->get();
 
         $urls = $this->getUrl($path);
-        return view('dashboard', compact('path', 'files', 'directories', 'urls', 'links'));
+        return view('dashboard', compact('path', 'files', 'directories', 'urls', 'links', 'markups'));
     }
 
 
