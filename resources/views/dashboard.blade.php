@@ -196,7 +196,7 @@
 
         </div>
 
-        @if (count($files) <= 0 && count($directories) <= 0 && count($links) <= 0)
+        @if (count($files) <= 0 && count($directories) <= 0 && count($links) <= 0 && count($markups) <= 0)
             <div class="row justify-content-center align-content-center" style="height: 80vh">
                 <div class="col-md-4 ">
                     <div class="d-flex justify-content-center gap-2">
