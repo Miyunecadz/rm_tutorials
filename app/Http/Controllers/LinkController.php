@@ -43,4 +43,36 @@ class LinkController extends Controller
 
         return back();
     }
+
+    public function edit(Link $link, Request $request)
+    {
+        return view('links.edit', [
+            'link' => $link,
+            'path' => $request->path
+        ]);
+    }
+
+    public function update(Link $link, Request $request)
+    {
+        $data = $request->validate([
+            'name' => 'required',
+            'url' => 'required',
+        ]);
+
+
+        $exist = Link::where('name', $request->name)->where('id', '!=', $link->id)->first();
+        $index = 1;
+
+        while($exist && $exist->name == $data['name']){
+            $data['name'] = $data['name'] ." ($index)";
+            $index++;
+        }
+
+
+        $link->name = $data['name'];
+        $link->url = $request->url;
+        $link->save();
+
+        return back()->with('success', 'Successfully update in the database!');
+    }
 }

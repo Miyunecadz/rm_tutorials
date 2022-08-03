@@ -155,6 +155,7 @@
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="{{$link->url}}" target="_blank">Open</a></li>
                                     @auth
+                                    <li><a class="dropdown-item" href="{{route('links.edit', ['link' => $link, 'path' => $path])}}">Edit</a></li>
                                         <li><a class="dropdown-item" href="{{route('link.delete', ['link' => $link])}}" onclick="return confirm('Are you sure you want to delete this link?')">Delete</a></li>
                                     @endauth
                                 </ul>

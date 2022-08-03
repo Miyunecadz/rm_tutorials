@@ -50,6 +50,8 @@ Route::middleware(['auth'])->group(function () {
     Route::controller(LinkController::class)->prefix('link')->group(function(){
         Route::get('/', 'create')->name('link.create');
         Route::post('/', 'store')->name('link.store');
+        Route::get('/{link}/edit', 'edit')->name('links.edit');
+        Route::put('/{link}', 'update')->name('links.update');
         Route::get('/{link}', 'delete')->name('link.delete');
     });
 
