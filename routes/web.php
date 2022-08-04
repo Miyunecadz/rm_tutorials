@@ -26,12 +26,6 @@ Route::middleware(['guest'])->group(function () {
     });
 });
 
-Route::get('/', [FileManagerController::class, 'index'])->name('dashboard');
-Route::get('/download', [FileManagerController::class, 'downloadFile'])->name('file.downloadFile');
-Route::get('/{markup}', [MarkUpController::class, 'open'])->name('markups.open');
-
-
-
 Route::middleware(['auth'])->group(function () {
 
     Route::controller(FileManagerController::class)->group(function(){
@@ -77,5 +71,6 @@ Route::middleware(['auth'])->group(function () {
     });
 });
 
-
-
+Route::get('/', [FileManagerController::class, 'index'])->name('dashboard');
+Route::get('/download', [FileManagerController::class, 'downloadFile'])->name('file.downloadFile');
+Route::get('/{markup}', [MarkUpController::class, 'open'])->name('markups.open');
