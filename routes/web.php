@@ -19,9 +19,17 @@ use App\Http\Controllers\UserController;
 |
 */
 
+Route::middleware(['guest'])->group(function () {
+    Route::controller(AuthenticationController::class)->group(function(){
+        Route::get('/login','index')->name('login');
+        Route::post('/login', 'authenticate')->name('authenticate');
+    });
+});
+
 Route::get('/', [FileManagerController::class, 'index'])->name('dashboard');
 Route::get('/download', [FileManagerController::class, 'downloadFile'])->name('file.downloadFile');
 Route::get('/{markup}', [MarkUpController::class, 'open'])->name('markups.open');
+
 
 
 Route::middleware(['auth'])->group(function () {
@@ -69,10 +77,5 @@ Route::middleware(['auth'])->group(function () {
     });
 });
 
-Route::middleware(['guest'])->group(function () {
-    Route::controller(AuthenticationController::class)->group(function(){
-        Route::get('/login','index')->name('login');
-        Route::post('/login', 'authenticate')->name('authenticate');
-    });
-});
+
 
