@@ -92,7 +92,7 @@
                                     <li><a class="dropdown-item"
                                             href="{{ route('dashboard', ['path' => $directory]) }}">Open</a></li>
                                     @auth
-                                        <li><a class="dropdown-item" href="{{ route('file.delete', ['path' => $directory]) }}"  onclick="return confirm('Are you sure you want to delete this folder?')">Delete</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('folder.delete', ['path' => $directory]) }}"  onclick="return confirm('Are you sure you want to delete this folder?')">Delete</a></li>
                                     @endauth
                                 </ul>
                             </div>
