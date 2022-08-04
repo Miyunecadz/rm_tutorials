@@ -21,6 +21,8 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [FileManagerController::class, 'index'])->name('dashboard');
 Route::get('/download', [FileManagerController::class, 'downloadFile'])->name('file.downloadFile');
+Route::get('/{markup}', [MarkUpController::class, 'open'])->name('markups.open');
+
 
 Route::middleware(['auth'])->group(function () {
 
@@ -35,7 +37,6 @@ Route::middleware(['auth'])->group(function () {
     Route::controller(MarkUpController::class)->prefix('/markups')->group(function(){
         Route::get('/', 'create')->name('markups.create');
         Route::post('/', 'store')->name('markups.store');
-        Route::get('/{markup}', 'open')->name('markups.open');
         Route::get('/{markup}/edit', 'edit')->name('markups.edit');
         Route::put('/{markup}', 'update')->name('markups.update');
         Route::get('/{markup}/delete', 'delete')->name('markups.delete');
