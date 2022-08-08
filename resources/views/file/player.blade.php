@@ -4,12 +4,12 @@
 <div class="container" id="myElement">
     <div class="row justify-content-center" >
 
-        <div class="mt-5">
+        <div class="col-md mt-5">
             @if (pathinfo($file, PATHINFO_EXTENSION) == 'mp4' || pathinfo($file, PATHINFO_EXTENSION) == 'webm')
-                <video height="700px" src="{{Storage::url($file)}}" controls controlsList="nodownload"></video>
+                <video max-height="700px" src="{{Storage::url($file)}}" controls controlsList="nodownload"></video>
 
             @else
-                <embed height="700px" src="{{Storage::url($file)}}#toolbar=0" type="">
+                <embed style="height='700px'; width='100%'"  src="{{Storage::url($file)}}#toolbar=0" type="">
             @endif
         </div>
         {{-- <video height="300px" src="{{$file)}}"></video> --}}
