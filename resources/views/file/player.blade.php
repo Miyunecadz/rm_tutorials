@@ -3,8 +3,8 @@
 @section('pages')
 <div class="container" id="myElement">
     <div class="row justify-content-center" >
-
         <div class="mt-5">
+        <a class="btn btn-outline-primary my-2" href="{{route('dashboard',['path' => $path])}}">Back</a>
             @if (pathinfo($file, PATHINFO_EXTENSION) == 'mp4' || pathinfo($file, PATHINFO_EXTENSION) == 'webm')
                 <video height="700px" src="{{Storage::url($file)}}" controls controlsList="nodownload"></video>
 
