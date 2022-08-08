@@ -75,8 +75,8 @@ class FileManagerController extends Controller
 
     public function openFile(Request $request)
     {
-        $video = $request->path;
-        return view('file.player', compact('video'));
+        $file = $request->file;
+        return view('file.player', compact('file'));
     }
 
     public function getVideo(Request $request)

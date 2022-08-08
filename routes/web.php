@@ -33,7 +33,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/create', 'store')->name('folder.store');
         Route::get('/delete', 'delete')->name('folder.delete');
         Route::get('/download', 'downloadFile')->name('file.downloadFile');
-        Route::get('/file/open', 'openFile')->name('file.open');
+        // Route::get('/file/open', 'openFile')->name('file.open');
         Route::get('/get-video', 'getVideo')->name('get.video');
     });
 
@@ -73,4 +73,5 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('/', [FileManagerController::class, 'index'])->name('dashboard');
+Route::post('/open', [FileManagerController::class, 'openFile'])->name('files.open');
 Route::get('/{markup}', [MarkUpController::class, 'open'])->name('markups.open');
